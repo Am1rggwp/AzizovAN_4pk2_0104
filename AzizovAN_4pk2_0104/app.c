@@ -12,4 +12,4 @@ void func3()
 	func1();
 	printf("func3: x=%d \t y=%d \t z=%d", x, y, z);
 
-}
+}    
