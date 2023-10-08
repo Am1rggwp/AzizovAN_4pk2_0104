@@ -26,7 +26,7 @@ namespace PZ_2
             public UInt16 wSuiteMask;
             public byte wProductType;
             public byte wReserved;
-        }
+        }   
 
         static void Main(string[] args)
         {
