@@ -57,6 +57,11 @@ namespace PZ_2
             string osVersion = Environment.OSVersion.ToString();
             Console.WriteLine("Версия ос: " + osVersion);
 
+            
+            Console.WriteLine(GetNGeom(10));
+
+
+
         }
     }
 }
