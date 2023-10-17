@@ -13,7 +13,7 @@ namespace PZ_9
 
         [Flags()]
         public enum AllocationType : uint
-        {
+        {   
             COMMIT = 0x1000,
             RESERVE = 0x2000,
             RESET = 0x80000,
@@ -75,10 +75,16 @@ namespace PZ_9
         static void Main(string[] args)
         {
             SYSTEM_INFO Info;
+
             GetSystemInfo(out Info);
+
             uint page_size = Info.PageSize;
-            IntPtr regionOne = VirtualAlloc(IntPtr.Zero, 2 * page_size, AllocationType.RESERVE | AllocationType.COMMIT, MemoryProtection.READWRITE);
-            IntPtr regionTwo = VirtualAlloc(IntPtr.Zero, 2 * page_size, AllocationType.RESERVE | AllocationType.COMMIT, MemoryProtection.READWRITE);
+
+            IntPtr regionOne = VirtualAlloc(IntPtr.Zero, 2 * page_size, AllocationType.RESERVE
+                | AllocationType.COMMIT, MemoryProtection.READWRITE);
+            IntPtr regionTwo = VirtualAlloc(IntPtr.Zero, 2 * page_size, AllocationType.RESERVE
+                | AllocationType.COMMIT, MemoryProtection.READWRITE);
+
             Console.WriteLine($"Адрес первого региона: {regionOne}");
             Console.WriteLine($"Адрес второго региона: {regionTwo}");
             ZeroMemory(regionOne, (int)page_size);
